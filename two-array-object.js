@@ -15,21 +15,23 @@ If there not enough keys, just ignore the rest of values.*/
 
 //declare an obj
 //iterate through keys using for...loop
-  //if i less than values arr length
-    //set obj key to values[i]
-  //else,
-    //set key equal to null
+//if i less than values arr length
+//set obj key to values[i]
+//else,
+//set key equal to null
 //return obj
 
 function twoArrayObject(keys, values) {
   const keysValuesObj = {};
-  for(let i = 0; i < keys.length; i++){
-    if(i < values.length){
+
+  for (let i = 0; i < keys.length; i++) {
+    if (i < values.length) {
       keysValuesObj[keys[i]] = values[i];
     }
-    else{
+    else {
       keysValuesObj[keys[i]] = null;
     }
   }
+
   return keysValuesObj;
 }
