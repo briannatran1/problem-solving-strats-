@@ -23,18 +23,18 @@ Constraints: time complexity: O(w + k) (if w is the length of word and k is the 
 //return true
 
 function canConstructWord(word, letters) {
-  if(letters.length === 0){
-    return false;
-  }
-
   const wordFreq = frequencyCounter(word);
   const lettersFreq = frequencyCounter(letters);
 
   for(let letter in wordFreq){
-    if(!(letter in lettersFreq) || wordFreq[letter] > lettersFreq[letter]){
+    let wordChar = wordFreq[letter];
+    let letterChar = lettersFreq[letter];
+
+    if(!(letter in lettersFreq) || wordChar > letterChar){
       return false;
     }
   }
+
   return true;
 }
 
@@ -49,11 +49,13 @@ function canConstructWord(word, letters) {
       // set equal to 1
   //return freq obj
 
-function frequencyCounter(str){
+function frequencyCounter(item){
   const freq = {};
-  for(let char of str){
-    const curr = freq[char] || 0;
-    freq[char] = curr + 1;
+
+  for(let val of item){
+    const curr = freq[val] || 0;
+    freq[val] = curr + 1;
   }
+
   return freq;
 }
