@@ -23,18 +23,18 @@
 function averagePair(nums, targetAvg) {
   if (nums.length === 0) return false;
 
-  let left = 0;
-  let right = nums.length - 1;
+  let start = 0;
+  let end = nums.length - 1;
 
-  while (left < right) {
-    const currAvg = (nums[left] + nums[right]) / 2;
+  while (start < end) {
+    const currAvg = (nums[start] + nums[end]) / 2;
 
     if (currAvg === targetAvg) {
       return true;
     } else if (currAvg > targetAvg) {
-      right--;
+      start--;
     } else {
-      left++;
+      end++;
     }
   }
 
